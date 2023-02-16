@@ -4,6 +4,23 @@ public class Mark {
     private Long id;
     private String email;
     private Double score;
+    public Mark() {
+    }
+
+    public Mark(Long id, String email, Double score) {
+        this.id = id;
+        this.email = email;
+        this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return "Mark{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", score=" + score +
+                '}';
+    }
 
     public Long getId() {
         return id;
