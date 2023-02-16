@@ -1,6 +1,12 @@
 package com.uniovi.sdi2223301spring.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Mark {
+    @Id @GeneratedValue
     private Long id;
     private String email;
     private Double score;
