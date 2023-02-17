@@ -17,7 +17,7 @@ public class ProfessorsService {
         professors.add(new Professor("97653342Q","Laura","Menéndez Rodríguez","Adjunto"));
         professors.add(new Professor("96324534V","María","Castro Muñoz","Catedrático"));
         professors.add(new Professor("08462941H","Pedro","Gómez Ruiz","Sustituto"));
-        professors.add(new Professor("08462941H","Teresa","Campo Aguilar","Titular"));
+        professors.add(new Professor("02362941H","Teresa","Campo Aguilar","Titular"));
     }
 
     public List<Professor> getProfessors() {
