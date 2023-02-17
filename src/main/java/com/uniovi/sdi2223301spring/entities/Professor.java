@@ -1,6 +1,12 @@
 package com.uniovi.sdi2223301spring.entities;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Professor {
+    @Id
     private String dni;
     private String name;
     private String surname;
