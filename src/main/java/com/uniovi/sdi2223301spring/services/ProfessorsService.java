@@ -22,7 +22,7 @@ public class ProfessorsService {
     }
 
     public Professor getProfessor(String dni){
-        return professorsRepository.findById(dni).get();
+        return professorsRepository.findByDni(dni);
     }
     public void addProfessor(Professor professor) {
         professorsRepository.save(professor);

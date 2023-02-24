@@ -5,29 +5,33 @@
 <nav th:replace="fragments/nav"></nav>
 <div class="container" id="main-container">
   <h2>Agregar profesor</h2>
-  <form class="form-horizontal" method="post" action="/professor/add">
+  <form class="form-horizontal" method="post" action="/professor/add" th:object="${professor}">
     <div class="form-group">
       <label class="control-label col-sm-2" for="dni">Dni:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="dni" name="dni" placeholder="Dni" required="true" />
+        <input type="text" class="form-control" id="dni" name="dni" placeholder="Dni" required="true" th:value="${professor.dni}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></span>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Nombre:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required="true" />
+        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required="true" th:value="${professor.name}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="surname">Apellidos:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="surname" name="surname" placeholder="Apellidos" required="true" />
+        <input type="text" class="form-control" id="surname" name="surname" placeholder="Apellidos" required="true" th:value="${professor.surname}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="category">Categoría:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="category" name="category" placeholder="Categoría" required="true" />
+        <input type="text" class="form-control" id="category" name="category" placeholder="Categoría" required="true" th:value="${professor.category}"/>
+        <span class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
       </div>
     </div>
     <div class="form-group">
