@@ -9,6 +9,7 @@ public class Mark {
     private Long id;
     private String email;
     private Double score;
+    private Boolean resend = false;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -62,6 +63,15 @@ public class Mark {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public Boolean getResend() {
+        return resend;
+    }
+
+    public void setResend(Boolean resend) {
+        this.resend = resend;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
