@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/head"></head>
 <body>
 <nav th:replace="fragments/nav"></nav>
@@ -24,9 +26,9 @@
         <td th:text="${professor.name}"> Ejercicio 1</td>
         <td th:text="${professor.surname}">10</td>
         <td th:text="${professor.category}">10</td>
-        <td><a th:href="${'/professor/details/' + professor.dni}">detalles</a></td>
-        <td><a th:href="${'/professor/edit/' + professor.dni}">modificar</a></td>
-        <td><a th:href="${'/professor/delete/' + professor.dni}">eliminar</a></td>
+        <td><a th:href="${'/professor/details/' + professor.dni}" sec:authorize="hasAnyRole('ROLE_PROFESSOR', 'ROLE_ADMIN')">detalles</a></td>
+        <td><a th:href="${'/professor/edit/' + professor.dni}" sec:authorize="hasRole('ROLE_ADMIN')">modificar</a></td>
+        <td><a th:href="${'/professor/delete/' + professor.dni}" sec:authorize="hasRole('ROLE_ADMIN')">eliminar</a></td>
       </tr>
       </tbody>
     </table>
