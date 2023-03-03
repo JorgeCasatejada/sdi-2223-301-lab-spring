@@ -93,17 +93,17 @@ public class MarksController {
         User user = usersService.getUserByDni(dni);
         Page<Mark> marks = marksService.getMarksForUser(pageable, user);
         model.addAttribute("markList", marks.getContent());
-        return "mark/list::tableMarks";
+        return "fragments/markList";
     }
 
     @RequestMapping(value = "/mark/{id}/resend", method = RequestMethod.GET)
     public String setResendTrue(@PathVariable Long id) {
         marksService.setMarkResend(true, id);
-        return "redirect:/mark/list";
+        return "fragments/markList";
     }
     @RequestMapping(value = "/mark/{id}/noresend", method = RequestMethod.GET)
     public String setResendFalse(@PathVariable Long id) {
         marksService.setMarkResend(false, id);
-        return "redirect:/mark/list";
+        return "fragments/markList";
     }
 }
