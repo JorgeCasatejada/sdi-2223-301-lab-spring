@@ -2,7 +2,6 @@ package com.uniovi.sdi2223301spring;
 
 import java.util.List;
 import java.util.Locale;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
