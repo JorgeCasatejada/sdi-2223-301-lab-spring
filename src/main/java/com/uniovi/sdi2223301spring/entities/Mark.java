@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Mark {
     @Id @GeneratedValue
     private Long id;
-    private String email;
+    private String description;
     private Double score;
     private Boolean resend = false;
     @ManyToOne
@@ -16,9 +16,9 @@ public class Mark {
     public Mark() {
     }
 
-    public Mark(String email, Double score, User user) {
+    public Mark(String description, Double score, User user) {
         this.id = id;
-        this.email = email;
+        this.description = description;
         this.score = score;
         this.user = user;
     }
@@ -27,7 +27,7 @@ public class Mark {
     public String toString() {
         return "Mark{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
+                ", description='" + description + '\'' +
                 ", score=" + score +
                 '}';
     }
@@ -40,12 +40,12 @@ public class Mark {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Double getScore() {

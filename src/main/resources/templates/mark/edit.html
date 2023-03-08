@@ -7,9 +7,9 @@
     <h2>Editar nota</h2>
     <form class="form-horizontal" method="post" th:action="${'/mark/edit/' + mark.id}">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Descripción:</label>
+            <label class="control-label col-sm-2" for="description">Descripción:</label>
             <div class="col-sm-10">
-                <input th:value="${mark.email}" id="email" type="text" class="form-control" name="email"
+                <input th:value="${mark.description}" id="description" type="text" class="form-control" name="description"
                        placeholder="Ejemplo Ejercicio 1" required="true"/>
             </div>
         </div>

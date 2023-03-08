@@ -82,7 +82,7 @@ public class MarksController {
     public String setEdit(@ModelAttribute Mark mark, @PathVariable Long id){
         Mark originalMark = marksService.getMark(id);
         originalMark.setScore(mark.getScore());
-        originalMark.setEmail(mark.getEmail());
+        originalMark.setDescription(mark.getDescription());
         marksService.addMark(originalMark);
         return "redirect:/mark/details/"+id;
     }

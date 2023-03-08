@@ -21,9 +21,9 @@ public class AddMarkValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Mark mark = (Mark) target;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Error.empty");
-        if (mark.getEmail().length() < 20) {
-            errors.rejectValue("email", "Error.addMark.email.length");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "Error.empty");
+        if (mark.getDescription().length() < 20) {
+            errors.rejectValue("description", "Error.addMark.description.length");
         }
         if (mark.getScore() > 10 || mark.getScore() < 0) {
             errors.rejectValue("score", "Error.addMark.score.value");
