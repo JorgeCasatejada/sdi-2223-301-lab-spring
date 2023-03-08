@@ -1,10 +1,7 @@
 package com.uniovi.sdi2223301spring;
 
 
-import com.uniovi.sdi2223301spring.pageobjects.PO_HomeView;
-import com.uniovi.sdi2223301spring.pageobjects.PO_Properties;
-import com.uniovi.sdi2223301spring.pageobjects.PO_SignUpView;
-import com.uniovi.sdi2223301spring.pageobjects.PO_View;
+import com.uniovi.sdi2223301spring.pageobjects.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -95,7 +92,7 @@ class Sdi2223301SpringApplicationTests {
         Assertions.assertEquals(checkText , result.get(0).getText());
     }
     //PR06B. Prueba del formulario de registro. Nombre corto.
-// Propiedad: Error.signup.dni.length
+    // Propiedad: Error.signup.dni.length
     @Test
     @Order(8)
     public void PR06B() {
@@ -107,6 +104,73 @@ class Sdi2223301SpringApplicationTests {
         String checkText = PO_HomeView.getP().getString("Error.signup.name.length",
                 PO_Properties.getSPANISH());
         Assertions.assertEquals(checkText , result.get(0).getText());
+    }
+
+    //PR07. Prueba del formulario de login. Datos correctos rol usuario.
+    @Test
+    @Order(9)
+    public void PR07() {
+        PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+        //Rellenamos el formulario.
+        PO_LoginView.fillForm(driver, "99999990A", "123456");
+        //Comprobamos que entramos en la sección privada y nos nuestra el texto a buscar
+        String checkText = "Notas del usuario";
+        List<WebElement> result = PO_View.checkElementBy(driver, "text", checkText);
+        Assertions.assertEquals(checkText, result.get(0).getText());
+    }
+
+    //PR08. Prueba del formulario de login. Datos correctos rol profesor.
+    @Test
+    @Order(10)
+    public void PR08() {
+        PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+        //Rellenamos el formulario.
+        PO_LoginView.fillForm(driver, "99999993D", "123456");
+        //Comprobamos que entramos en la sección privada y nos nuestra el texto a buscar
+        String checkText = "Notas del usuario";
+        List<WebElement> result = PO_View.checkElementBy(driver, "text", checkText);
+        Assertions.assertEquals(checkText, result.get(0).getText());
+    }
+
+    //PR09. Prueba del formulario de login. Datos correctos rol administrador.
+    @Test
+    @Order(11)
+    public void PR09() {
+        PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+        //Rellenamos el formulario.
+        PO_LoginView.fillForm(driver, "99999988F", "123456");
+        //Comprobamos que entramos en la sección privada y nos nuestra el texto a buscar
+        String checkText = "Notas del usuario";
+        List<WebElement> result = PO_View.checkElementBy(driver, "text", checkText);
+        Assertions.assertEquals(checkText, result.get(0).getText());
+    }
+
+    //PR10. Prueba del formulario de login. Datos correctos rol alumno.
+    @Test
+    @Order(12)
+    public void PR10() {
+        PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+        //Rellenamos el formulario.
+        PO_LoginView.fillForm(driver, "99999990A", "123456");
+        //Comprobamos que entramos en la sección privada y nos nuestra el texto a buscar
+        String checkText = "Notas del usuario";
+        List<WebElement> result = PO_View.checkElementBy(driver, "text", checkText);
+        Assertions.assertEquals(checkText, result.get(0).getText());
+    }
+
+    //PR11. Prueba del formulario de login. Datos correctos rol alumno.
+    @Test
+    @Order(13)
+    public void PR11() {
+        PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+        //Rellenamos el formulario.
+        PO_LoginView.fillForm(driver, "99999990A", "123456");
+        //Nos desconectamos
+        PO_HomeView.clickOption(driver, "logout", "class", "btn btn-primary");
+        //Comprobamos que nos hemos desconectado
+        String checkText = "Identifícate";
+        List<WebElement> result = PO_View.checkElementBy(driver, "text", checkText);
+        Assertions.assertEquals(checkText, result.get(0).getText());
     }
 
     @Test
